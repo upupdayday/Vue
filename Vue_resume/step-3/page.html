@@ -4,23 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>step-3</title>
+    <link rel="stylesheet" href="src/css/page.css">
 </head>
 
 <body>
     <div id="app">
         <div class="newTask">
-            <input type="text" v-model="newTodo" @keypress.enter="addTodo">
+            <input id="inputTodo" placeholder="Add to Todo List" type="text" v-model="newTodo" @keypress.enter="addTodo">
         </div>
-        <ol class="todos">
+        <ul class="todos">
             <li v-for="todo in todoList">
-                <label for=todo.title>{{ todo.title }}</label>
-                <input type="checkbox" id="todo.title" value=todo.title v-model="todo.done">
-                <span v-if="todo.done">already Done</span>
-                <span v-else>Not yet</span>
-                <button @click="removeTodo(todo)">X</button>
+                <div class="wrapper">
+                    <input type="checkbox" id="todo.title" value=todo.title v-model="todo.done">
+                    <!-- <label id="todotitle" for=todo.title></label> -->
+                    <span id="todotitle">{{ todo.title }}</span>
+                    <span>{{ todo.createdAt }}</span>
 
+                    <span v-if="todo.done">已完成</span>
+                    <span v-else="todo.done">未完成</span>
+                    <!-- <span id="tt">already Done</span> -->
+
+                    <a @click="removeTodo(todo)">删除</a>
+                </div>
             </li>
-        </ol>
+        </ul>
     </div>
     <script src="dist/bundle.js"></script>
 </body>
