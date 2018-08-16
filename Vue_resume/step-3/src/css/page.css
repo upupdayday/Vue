@@ -34,7 +34,7 @@ li {
     border: 2px solid #07ee74;
     box-shadow: 3px 3px 2px #d3f7e4;
     background-color: #ecfdf4;
-    padding: 3px;
+    padding: 5px;
 }
 
 .todos li .wrapper {
@@ -46,7 +46,11 @@ li {
     /* vertical-align: center; */
 }
 
-#todotitle {
+input[type=checkbox] {
+    height: 30px;
+}
+
+#title {
     display: inline-block;
     width: 250px;
     word-wrap: break-word;
@@ -54,6 +58,21 @@ li {
     /* overflow: hidden; */
 }
 
-input[type=checkbox] {
-    height: 30px;
+#date {
+    font-size: 13px;
+    color: #666;
+}
+
+#done {
+    width: 50px;
+    font-size: 13px;
+    color: red;
+}
+
+#delete {
+    font-weight: bold;
+    color: rgba(255, 51, 0, 0.993);
+    border-radius: 3px;
+    border: 1px solid red;
+    background-color: #faf2f2;
 }
