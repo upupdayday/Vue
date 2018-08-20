@@ -1,0 +1,127 @@
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#app {
+    margin: 0 auto;
+    /* width: 750px; */
+}
+
+
+/*SignIn&SignUp*/
+
+#SignInandSignUp {
+    margin-top: 50px;
+}
+
+
+/***************/
+
+
+/*todo*/
+
+.headbar {
+    height: 50px;
+    font-size: 16px;
+    background-color: #317ef3;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    line-height: 25px;
+}
+
+#user {
+    font-size: 18px;
+    margin-left: 30px;
+    text-decoration: underline;
+}
+
+#logout {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-right: 30px;
+    padding: 3px;
+}
+
+#logout:hover {
+    cursor: pointer;
+}
+
+.newTask {
+    width: 650px;
+    margin: 10px auto;
+}
+
+#inputTodo {
+    width: 650px;
+    height: 40px;
+    font-size: 20px;
+    /* padding： */
+    text-align: center;
+}
+
+.todos {
+    width: 600px;
+    margin: 10px auto;
+}
+
+.todos li {
+    margin: 8px 0;
+    border-radius: 3px;
+    border: 2px solid #07ee74;
+    box-shadow: 3px 3px 2px #d3f7e4;
+    background-color: #ecfdf4;
+    padding: 5px;
+}
+
+.todos li .wrapper {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    /* vertical-align: center; */
+}
+
+input[type=checkbox] {
+    height: 30px;
+}
+
+#title {
+    font-size: 17px;
+    display: inline-block;
+    width: 250px;
+    word-wrap: break-word;
+    word-break: break-all;
+    /* overflow: hidden; */
+}
+
+#date {
+    font-size: 13px;
+    color: #666;
+}
+
+#done {
+    width: 60px;
+    font-size: 14px;
+    color: rgb(9, 230, 28);
+}
+
+#notyet {
+    width: 60px;
+    font-size: 14px;
+    color: red;
+}
+
+#delete {
+    font-weight: bold;
+    color: rgba(255, 51, 0, 0.993);
+    border-radius: 3px;
+    border: 1px solid red;
+    background-color: #faf2f2;
+}

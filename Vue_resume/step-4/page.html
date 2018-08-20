@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>step-4</title>
+    <link rel="stylesheet" href="src/css/page.css">
+</head>
+
+<body>
+    <div id="app">
+        <section id="SignInandSignUp" v-if="!currentUser">
+            <div>
+                <label><input type="radio" name="type" v-model='actionType' value="signUp">注册</label>
+                <label><input type="radio" name="type" v-model='actionType' value="login">登入</label>
+            </div>
+            <div class="signUp" v-if="actionType=='signUp'">
+                <form @submit.prevent=signUp>
+                    <div class="formRow">
+                        用户名<input type="text" v-model="formData.username">
+                    </div>
+                    <div class="formRow">
+                        密码<input type="password" v-model="formData.password">
+                    </div>
+                    <div class="formActions">
+                        <input type="submit" value="注册">
+                    </div>
+                </form>
+            </div>
+            <div class="login" v-if="actionType=='login'">
+                <form @submit.prevent="login">
+                    <div class="formRow">
+                        用户名<input type="text" v-model="formData.username">
+                    </div>
+                    <div class="formRow">
+                        密码<input type="password" v-model="formData.password">
+                    </div>
+                    <div class="formActions">
+                        <input type="submit" value="登入">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="todo" v-if="currentUser">
+            <div class="headbar">
+                <span id="user">{{currentUser.username}}</span>
+                <span id="logout" @click="logout">LogOut</span>
+            </div>
+            <div class="newTask">
+                <input id="inputTodo" placeholder="Add to Todo List" type="text" v-model="newTodo" @keypress.enter="addTodo">
+            </div>
+            <ul class="todos">
+                <li v-for="todo in todoList">
+                    <div class="wrapper">
+                        <input type="checkbox" id="todo.title" value=todo.title v-model="todo.done">
+                        <!-- <label id="todotitle" for=todo.title></label> -->
+                        <span id="title">{{ todo.title }}</span>
+                        <span id="date">{{ todo.createdAt }}</span>
+
+                        <span id="done" v-if="todo.done">Done</span>
+                        <span id="notyet" v-else="todo.done">Not yet</span>
+                        <!-- <span id="tt">already Done</span> -->
+                        <button id="delete" @click="removeTodo(todo)">X</button>
+                        <!-- <a id="delete" @click="removeTodo(todo)"></a> -->
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+    <script src="dist/bundle.js"></script>
+</body>
+
+</html>
