@@ -39,7 +39,6 @@ var app_ent = new Vue({
     },
     methods: {
         fetchTodos: function() {
-            console.log('ffff')
             if (this.currentUser) {
                 var query = new AV.Query('AllTodos');
                 query.find()
@@ -146,7 +145,6 @@ var app_ent = new Vue({
         logout: function() {
             AV.User.logOut();
             this.currentUser = null;
-            // window.location.reload()
         }
     }
 })
