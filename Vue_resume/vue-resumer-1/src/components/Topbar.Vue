@@ -3,6 +3,8 @@
       <div class="wrapper">
         <span class="logo">Resumer</span>
       </div>
+
+      
     </div>
 </template>
 
