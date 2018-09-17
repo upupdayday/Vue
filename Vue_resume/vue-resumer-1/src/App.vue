@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   #app{
     /* min-width: 1024px;
     max-width: 1440px; */
@@ -44,7 +44,7 @@ export default {
   }
   main{
     min-width: 1024px;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     display: flex;   
     justify-content: space-between;
     /*--解决main居中*/
@@ -54,5 +54,11 @@ export default {
     margin: 16px 0;
     padding: 0 16px;
     flex: 1;
+  }
+  .icon {
+      width: 1em; height: 1em;
+      vertical-align: -0.15em;
+      // fill: currentColor;
+      overflow: hidden;
   }
 </style>

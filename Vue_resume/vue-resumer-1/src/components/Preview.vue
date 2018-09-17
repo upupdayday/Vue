@@ -6,7 +6,7 @@
 
 
 
-<style>
+<style lang="scss">
   #preview{
     /* border: 1px solid black; */
     background: #fff;
