@@ -10,6 +10,8 @@
   #preview{
     /* border: 1px solid black; */
     background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
     flex: 1;
     /* width: 888px;
     height: 925px; */

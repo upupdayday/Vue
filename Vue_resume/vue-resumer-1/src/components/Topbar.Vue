@@ -29,6 +29,5 @@
     font-size:24px;
     color:#409EFF;
     }
-  
   }
 </style>
