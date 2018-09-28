@@ -17,7 +17,8 @@
               <Profile v-bind:profile="profile"/>
             </li>
             <li :class="{active: currentTab === 1}">
-              <WorkHistory v-bind:workExperience="workExperience"/>
+              <WorkHistory v-bind:workExperience="workExperience"
+              v-bind:title="'工作经历'"/>
             </li>
       </ol>
     </div>
@@ -43,6 +44,13 @@ export default {
           company:'',
           position:'',
           content:''
+        },
+      ],
+      studyExperience:[
+        {
+          school:'',
+          duration:'',
+          degree:''
         },
       ],
     }

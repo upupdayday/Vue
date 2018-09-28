@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>工作经历</h2>
+        <h2>{{title}}</h2>
         <el-form>
         <div class="workWrapper" v-for="(work, index) in workExperience">
             <el-button @click="deleteWork(index)" type="danger" icon="el-icon-delete" size="small"></el-button>
@@ -22,7 +22,7 @@
 
 <script>
     export default {
-        props: ['workExperience'],
+        props: ['workExperience', 'title'],
           methods:{
         addWork: function(){
         this.workExperience.push({company:'',
