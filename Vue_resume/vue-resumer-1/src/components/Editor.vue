@@ -22,6 +22,15 @@
             <li :class="{active: currentTab === 2}">
               <ExperienceEditor v-bind:items="studyExperience"/>
             </li>
+            <li :class="{active: currentTab === 3}">
+              <ExperienceEditor v-bind:items="projectExperience"/>
+            </li>
+            <li :class="{active: currentTab === 4}">
+              <ExperienceEditor v-bind:items="rewardExperience"/>
+            </li>
+            <li :class="{active: currentTab === 5}">
+              <Contacts v-bind:contact="contact"/>
+            </li>
       </ol>
     </div>
 </template>
@@ -30,8 +39,9 @@
 <script>
 import Profile from './Profile'
 import ExperienceEditor from'./ExperienceEditor'
+import Contacts from'./Contacts'
 export default {
-  components: {Profile, ExperienceEditor},
+  components: {Profile, ExperienceEditor, Contacts},
   data() {
     return {
       currentTab: 0,
@@ -40,6 +50,12 @@ export default {
         name: '',
         city: '',
         birth: ''
+      },
+      contact: {
+        email: '',
+        mobile: '',
+        weixin: '',
+        QQ:''
       },
       workExperience:{
         title:'工作经历',
@@ -71,6 +87,32 @@ export default {
             duration:'时间',
             major:'专业',
             degree:'学位'
+        },
+      },
+      projectExperience:{
+        title:'项目经历',
+        experience:[
+            {
+              name:'',
+              content:''
+            },
+        ],
+        labels: {
+              name:'项目名称',
+              content:'项目内容'
+        },
+      },
+      rewardExperience:{
+        title:'获奖情况',
+        experience:[
+            {
+              name:'',
+              content:''
+            },
+        ],
+        labels: {
+              name:'奖项名称',
+              content:'奖项内容'
         },
       },
     }
