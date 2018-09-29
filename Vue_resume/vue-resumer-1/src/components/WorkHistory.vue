@@ -2,7 +2,7 @@
     <div>
         <h2>{{title}}</h2>
         <el-form>
-        <div class="workWrapper" v-for="(work, index) in workExperience">
+        <div class="experienceEditorWrapper" v-for="(work, index) in workExperience">
             <el-button @click="deleteWork(index)" type="danger" icon="el-icon-delete" size="small"></el-button>
             <el-form-item label="公司">
                 <el-input v-model="work.company"></el-input>
@@ -22,16 +22,16 @@
 
 <script>
     export default {
-        props: ['workExperience', 'title'],
-          methods:{
-        addWork: function(){
-        this.workExperience.push({company:'',
-                                    position:'',
-                                    content:''})
-        },
-        deleteWork: function(index){
-        this.workExperience.splice(index,1)
-        },
-  }
+        props: ['workExperience','title'],
+        methods:{
+            addWork: function(){
+            this.workExperience.push({company:'',
+                                        position:'',
+                                        content:''})
+            },
+            deleteWork: function(index){
+            this.workExperience.splice(index,1)
+            },
+        }
     }
 </script>

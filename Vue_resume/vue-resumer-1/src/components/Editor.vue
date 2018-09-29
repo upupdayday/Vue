@@ -17,8 +17,12 @@
               <Profile v-bind:profile="profile"/>
             </li>
             <li :class="{active: currentTab === 1}">
-              <WorkHistory v-bind:workExperience="workExperience"
-              v-bind:title="'工作经历'"/>
+              <ExperienceEditor v-bind:items="workExperience"
+              v-bind:title="'工作经历'" v-bind:labels="workLabels"/>
+            </li>
+            <li :class="{active: currentTab === 2}">
+              <ExperienceEditor v-bind:items="studyExperience"
+              v-bind:title="'学习经历'" v-bind:labels="studyLabels"/>
             </li>
       </ol>
     </div>
@@ -28,12 +32,13 @@
 <script>
 import Profile from './Profile'
 import WorkHistory from './WorkHistory'
+import ExperienceEditor from'./ExperienceEditor'
 export default {
-  components: {Profile, WorkHistory},
+  components: {Profile, WorkHistory, ExperienceEditor},
   data() {
     return {
       currentTab: 0,
-      icons: ['shenfenzheng', 'ziyuan', 'book', 'heart', 'jiangbei', 'phone'],
+      icons: ['shenfenzheng', 'ziyuan', 'book', 'xiangmu', 'jiangbei', 'phone'],
       profile: {
         name: '',
         city: '',
@@ -42,7 +47,7 @@ export default {
       workExperience:[
         {
           company:'',
-          position:'',
+          duration:'',
           content:''
         },
       ],
@@ -50,9 +55,21 @@ export default {
         {
           school:'',
           duration:'',
+          major:'',
           degree:''
         },
       ],
+      workLabels:{
+          company:'公司',
+          duration:'时间',
+          content:'工作内容'
+      },
+      studyLabels:{
+          school:'学校',
+          duration:'时间',
+          major:'专业',
+          degree:'学位'
+      },
     }
   },
   methods:{
@@ -103,7 +120,7 @@ export default {
         &.active{
           display: block;
         }
-        .workWrapper{
+        .experienceEditorWrapper{
           margin-top: 10px;
           position:relative;
           .el-button--danger{
@@ -120,8 +137,6 @@ export default {
         .el-button--primary{
             margin-top: 15px;
           }
-
-
       }
     }
   }
