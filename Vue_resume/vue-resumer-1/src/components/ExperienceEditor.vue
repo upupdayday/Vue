@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h2>{{title}}</h2>
+        <h2>{{items.title}}</h2>
         <el-form>
-        <div class="experienceEditorWrapper" v-for="(item, index) in items">
+        <div class="experienceEditorWrapper" v-for="(item, index) in items.experience">
             <el-button @click="deleteItem(index)" type="danger" icon="el-icon-delete" size="small"></el-button>
-            <el-form-item v-for="key in keys" v-bind:label="labels[key]"  v-bind:key= "key">
+            <el-form-item v-for="key in keys" v-bind:label="items.labels[key]"  v-bind:key= "key">
                 <el-input v-model="item[key]"></el-input>
             </el-form-item>               
             <hr>
@@ -16,10 +16,10 @@
 
 <script>
     export default {
-        props: ['items','title', 'labels'],
+        props: ['items'],
         computed:{
             keys: function(){
-                return Object.keys(this.items[0]);
+                return Object.keys(this.items.experience[0]);
             }
         },
         methods:{
@@ -30,10 +30,15 @@
                         empty[key] = '';
                     }
                 );
-                this.items.push(empty);
+                this.items.experience.push(empty);
             },
             deleteItem: function(index){
-                this.items.splice(index,1)
+                // if (index===0) {
+                //     this.items.experience.splice(index,1,{})
+                // }
+                // else{
+                    this.items.experience.splice(index,1)
+                // }                
             },
         }
     }

@@ -17,12 +17,10 @@
               <Profile v-bind:profile="profile"/>
             </li>
             <li :class="{active: currentTab === 1}">
-              <ExperienceEditor v-bind:items="workExperience"
-              v-bind:title="'工作经历'" v-bind:labels="workLabels"/>
+              <ExperienceEditor v-bind:items="workExperience"/>
             </li>
             <li :class="{active: currentTab === 2}">
-              <ExperienceEditor v-bind:items="studyExperience"
-              v-bind:title="'学习经历'" v-bind:labels="studyLabels"/>
+              <ExperienceEditor v-bind:items="studyExperience"/>
             </li>
       </ol>
     </div>
@@ -31,10 +29,9 @@
 
 <script>
 import Profile from './Profile'
-import WorkHistory from './WorkHistory'
 import ExperienceEditor from'./ExperienceEditor'
 export default {
-  components: {Profile, WorkHistory, ExperienceEditor},
+  components: {Profile, ExperienceEditor},
   data() {
     return {
       currentTab: 0,
@@ -44,31 +41,37 @@ export default {
         city: '',
         birth: ''
       },
-      workExperience:[
-        {
-          company:'',
-          duration:'',
-          content:''
+      workExperience:{
+        title:'工作经历',
+        experience:[
+            {
+              company:'',
+              duration:'',
+              content:''
+            },
+        ],
+        labels: {
+            company:'公司',
+            duration:'时间',
+            content:'工作内容'
         },
-      ],
-      studyExperience:[
-        {
-          school:'',
-          duration:'',
-          major:'',
-          degree:''
-        },
-      ],
-      workLabels:{
-          company:'公司',
-          duration:'时间',
-          content:'工作内容'
       },
-      studyLabels:{
-          school:'学校',
-          duration:'时间',
-          major:'专业',
-          degree:'学位'
+      studyExperience:{
+        title:'学习经历',
+        experience:[
+            {
+              school:'',
+              duration:'',
+              major:'',
+              degree:''
+            },
+        ],
+        labels: {
+            school:'学校',
+            duration:'时间',
+            major:'专业',
+            degree:'学位'
+        },
       },
     }
   },
