@@ -31,6 +31,10 @@
             <li :class="{active: currentTab === 5}">
               <Contacts v-bind:contact="contact"/>
             </li>
+            <li class="test">
+              {{count}}
+              <button @click="add">test</button>
+            </li>
       </ol>
     </div>
 </template>
@@ -117,8 +121,15 @@ export default {
       },
     }
   },
-  methods:{
-
+  computed: {
+    count () {
+      return this.$store.state.count
+    }
+  },
+  methods: {
+    add (){
+      this.$store.commit('increment')
+    }
   }
 }
 </script>
@@ -163,6 +174,9 @@ export default {
         display:none;
         text-align: center;
         &.active{
+          display: block;
+        }
+        &.test{
           display: block;
         }
         .experienceEditorWrapper{
