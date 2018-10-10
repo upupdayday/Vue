@@ -48,7 +48,7 @@ export default {
   components: {Profile, ExperienceEditor, Contacts},
   data() {
     return {
-      currentTab: 0,
+      
       icons: ['shenfenzheng', 'ziyuan', 'book', 'xiangmu', 'jiangbei', 'phone'],
       profile: {
         name: '',
@@ -124,6 +124,14 @@ export default {
   computed: {
     count () {
       return this.$store.state.count
+    },
+    currentTab: {
+      get: function(){
+        return this.$store.state.currentTab
+      },
+      set: function(value){
+        return this.$store.commit('switchTab', value)
+      }
     }
   },
   methods: {
