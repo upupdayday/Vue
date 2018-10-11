@@ -3,13 +3,15 @@
         <h2>{{items.title}}</h2>
         <el-form>
         <div class="experienceEditorWrapper" v-for="(item, index) in items.itemData">
-            <el-button v-if="items.button === 'yes'" @click="deleteItem(index)" type="danger" icon="el-icon-delete" size="small"></el-button>
+            <el-button v-if="items.button === 'yes'" @click="deleteItem(index)"
+                     type="danger" icon="el-icon-delete" size="small"></el-button>
             <el-form-item v-for="key in keys" v-bind:label="items.labels[key]"  v-bind:key= "key">
                 <el-input v-model="item[key]"></el-input>
             </el-form-item>               
-            <hr>
+            <hr v-if="items.button === 'yes'">
         </div>
-        <el-button v-if="items.button === 'yes'" @click="addItem" type="primary" plain>添加经历</el-button>
+        <el-button v-if="items.button === 'yes'" @click="addItem" 
+            type="primary" plain>添加经历</el-button>
         </el-form>
     </div>
 </template>
