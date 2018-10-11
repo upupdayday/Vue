@@ -14,22 +14,22 @@
       </nav>
       <ol class="panels">
             <li :class="{active: currentTab === 0}">
-              <ExperienceEditor v-bind:items="profile"/>
+              <SubEditor v-bind:items="profile"/>
             </li>
             <li :class="{active: currentTab === 1}">
-              <ExperienceEditor v-bind:items="work"/>
+              <SubEditor v-bind:items="work"/>
             </li>
             <li :class="{active: currentTab === 2}">
-              <ExperienceEditor v-bind:items="study"/>
+              <SubEditor v-bind:items="study"/>
             </li>
             <li :class="{active: currentTab === 3}">
-              <ExperienceEditor v-bind:items="project"/>
+              <SubEditor v-bind:items="project"/>
             </li>
             <li :class="{active: currentTab === 4}">
-              <ExperienceEditor v-bind:items="reward"/>
+              <SubEditor v-bind:items="reward"/>
             </li>
             <li :class="{active: currentTab === 5}">
-              <ExperienceEditor v-bind:items="contact"/>
+              <SubEditor v-bind:items="contact"/>
             </li>
             <li class="test">
               {{count}}
@@ -41,11 +41,9 @@
 
 
 <script>
-import Profile from './Profile'
-import ExperienceEditor from'./ExperienceEditor'
-import Contacts from'./Contacts'
+import SubEditor from './SubEditor'
 export default {
-  components: {Profile, ExperienceEditor, Contacts},
+  components: {SubEditor},
   data() {
     return {
       
