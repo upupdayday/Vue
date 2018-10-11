@@ -2,14 +2,14 @@
     <div>
         <h2>{{items.title}}</h2>
         <el-form>
-        <div class="experienceEditorWrapper" v-for="(item, index) in items.experience">
-            <el-button @click="deleteItem(index)" type="danger" icon="el-icon-delete" size="small"></el-button>
+        <div class="experienceEditorWrapper" v-for="(item, index) in items.itemData">
+            <el-button v-if="items.button === 'yes'" @click="deleteItem(index)" type="danger" icon="el-icon-delete" size="small"></el-button>
             <el-form-item v-for="key in keys" v-bind:label="items.labels[key]"  v-bind:key= "key">
                 <el-input v-model="item[key]"></el-input>
             </el-form-item>               
             <hr>
         </div>
-        <el-button @click="addItem" type="primary" plain>添加经历</el-button>
+        <el-button v-if="items.button === 'yes'" @click="addItem" type="primary" plain>添加经历</el-button>
         </el-form>
     </div>
 </template>
@@ -19,7 +19,7 @@
         props: ['items'],
         computed:{
             keys: function(){
-                return Object.keys(this.items.experience[0]);
+                return Object.keys(this.items.itemData[0]);
             }
         },
         methods:{
@@ -30,14 +30,16 @@
                         empty[key] = '';
                     }
                 );
-                this.items.experience.push(empty);
+                this.items.itemData.push(empty);
             },
             deleteItem: function(index){
+                //todo:可以考虑在为0时，只去掉input里的数据，不删除数组成员
+                //preview时，同时对内容判空，决定是否显示
                 // if (index===0) {
-                //     this.items.experience.splice(index,1,{})
+                //     this.items.itemData.splice(index,1,{})
                 // }
                 // else{
-                    this.items.experience.splice(index,1)
+                    this.items.itemData.splice(index,1)
                 // }                
             },
         }

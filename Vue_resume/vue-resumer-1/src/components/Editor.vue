@@ -14,22 +14,22 @@
       </nav>
       <ol class="panels">
             <li :class="{active: currentTab === 0}">
-              <Profile v-bind:profile="profile"/>
+              <ExperienceEditor v-bind:items="profile"/>
             </li>
             <li :class="{active: currentTab === 1}">
-              <ExperienceEditor v-bind:items="workExperience"/>
+              <ExperienceEditor v-bind:items="work"/>
             </li>
             <li :class="{active: currentTab === 2}">
-              <ExperienceEditor v-bind:items="studyExperience"/>
+              <ExperienceEditor v-bind:items="study"/>
             </li>
             <li :class="{active: currentTab === 3}">
-              <ExperienceEditor v-bind:items="projectExperience"/>
+              <ExperienceEditor v-bind:items="project"/>
             </li>
             <li :class="{active: currentTab === 4}">
-              <ExperienceEditor v-bind:items="rewardExperience"/>
+              <ExperienceEditor v-bind:items="reward"/>
             </li>
             <li :class="{active: currentTab === 5}">
-              <Contacts v-bind:contact="contact"/>
+              <ExperienceEditor v-bind:items="contact"/>
             </li>
             <li class="test">
               {{count}}
@@ -51,19 +51,45 @@ export default {
       
       icons: ['shenfenzheng', 'ziyuan', 'book', 'xiangmu', 'jiangbei', 'phone'],
       profile: {
-        name: '',
-        city: '',
-        birth: ''
+        button:'no',
+        title:'个人信息',
+        itemData:[
+          {
+            name: '',
+            city: '',
+            birth: ''
+          },
+        ],
+
+        labels:{
+          name: '姓名',
+          city: '城市',
+          birth: '出生日期'
+        },
       },
       contact: {
-        email: '',
-        mobile: '',
-        weixin: '',
-        QQ:''
+        button:'no',
+        title:'联系方式',
+        itemData:[
+          {
+            email: '',
+            mobile: '',
+            weixin: '',
+            QQ:''
+          },
+        ],
+
+        labels:{
+          email: '邮箱',
+          mobile: '手机',
+          weixin: '微信',
+          QQ:'QQ'
+        },
       },
-      workExperience:{
+      work:{
+        button:'yes',
         title:'工作经历',
-        experience:[
+        itemData:[
             {
               company:'',
               duration:'',
@@ -76,9 +102,10 @@ export default {
             content:'工作内容'
         },
       },
-      studyExperience:{
+      study:{
+        button:'yes',
         title:'学习经历',
-        experience:[
+        itemData:[
             {
               school:'',
               duration:'',
@@ -93,9 +120,10 @@ export default {
             degree:'学位'
         },
       },
-      projectExperience:{
+      project:{
+        button:'yes',
         title:'项目经历',
-        experience:[
+        itemData:[
             {
               name:'',
               content:''
@@ -106,9 +134,10 @@ export default {
               content:'项目内容'
         },
       },
-      rewardExperience:{
+      reward:{
+        button:'yes',
         title:'获奖情况',
-        experience:[
+        itemData:[
             {
               name:'',
               content:''
