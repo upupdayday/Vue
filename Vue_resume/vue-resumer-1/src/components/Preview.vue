@@ -7,6 +7,60 @@
               {{resume.profile.itemData[0].city}} {{resume.profile.itemData[0].birth}}
           </p>
       </section>
+
+      <section v-show="resume.work">
+          <h2>{{resume.work.title}}</h2>
+          <ol>
+              <li v-for="item in resume.work.itemData">
+                  <h3>{{item.company}}</h3>
+                  <h4>{{item.duration}}</h4>
+                  <p>{{item.content}}</p>
+              </li>
+          </ol>
+      </section>
+
+      <section v-show="resume.study">
+          <h2>{{resume.study.title}}</h2>
+          <ol>
+              <li v-for="item in resume.study.itemData">
+                  <h3>{{item.school}}</h3>
+                  <h4>{{item.duration}}</h4>
+                  <p>{{item.major}}</p>
+                  <p>{{item.degree}}</p>
+              </li>
+          </ol>
+      </section>
+
+      <section v-show="resume.project">
+          <h2>{{resume.project.title}}</h2>
+          <ol>
+              <li v-for="item in resume.project.itemData">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.content}}</p>
+              </li>
+          </ol>
+      </section>
+
+      <section v-show="resume.reward">
+          <h2>{{resume.reward.title}}</h2>
+          <ol>
+              <li v-for="item in resume.reward.itemData">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.content}}</p>
+              </li>
+          </ol>
+      </section>
+
+      <section v-show="resume.contact">
+          <h2>{{resume.profile.title}}</h2>
+          <ol>
+              <li v-for="(value,key) in resume.contact.itemData[0]">
+                  <h3>{{key}}</h3>
+                  <p>{{value}}</p>
+              </li>
+          </ol>
+      </section>
+
     </div>
 </template>
 
