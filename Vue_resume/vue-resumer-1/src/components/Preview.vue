@@ -1,10 +1,24 @@
 <template>
     <div id="preview">
-        这是预览
+      <section v-show="resume.profile">
+          <h1>{{resume.profile.itemData[0].name}}</h1>
+          <h2>{{resume.profile.title}}</h2>
+          <p>
+              {{resume.profile.itemData[0].city}} {{resume.profile.itemData[0].birth}}
+          </p>
+      </section>
     </div>
 </template>
 
-
+<script>
+    export default{
+      computed: {
+        resume(){
+          return this.$store.state.resume
+        }
+      }
+    }
+</script>
 
 <style lang="scss">
   #preview{
