@@ -16,10 +16,6 @@
             <li v-for="item in resume.itemTalbe" :class="{active: currentTab === item.itemName}">
               <SubEditor v-bind:items="resume[item.itemName]"/>
             </li>
-            <li class="test">
-              {{count}}
-              <button @click="add">test</button>
-            </li>
       </ol>
     </div>
 </template>
@@ -35,9 +31,6 @@ export default {
     }
   },
   computed: {
-    count () {
-      return this.$store.state.count
-    },
     currentTab: {
       get: function(){
         return this.$store.state.currentTab
@@ -51,9 +44,7 @@ export default {
     }
   },
   methods: {
-    add (){
-      this.$store.commit('increment')
-    }
+
   }
 }
 </script>
@@ -98,9 +89,6 @@ export default {
         display:none;
         text-align: center;
         &.active{
-          display: block;
-        }
-        &.test{
           display: block;
         }
         .experienceEditorWrapper{

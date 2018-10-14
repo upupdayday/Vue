@@ -5,7 +5,6 @@ Vue.use(Vuex) // 不写这句话浏览器控制台就会报错，于是我就写
 
 export default new Vuex.Store({
     state: {
-        count: 0,
         currentTab: 'profile',
         resume: {
             itemTalbe: [
@@ -107,9 +106,6 @@ export default new Vuex.Store({
         },
     },
     mutations: {
-        increment(state) {
-            state.count++
-        },
         switchTab(state, payload) {
             state.currentTab = payload;
         }
