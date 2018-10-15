@@ -19,9 +19,9 @@ export default new Vuex.Store({
                 button: 'no',
                 title: '个人信息',
                 itemData: [{
-                    name: '',
-                    city: '',
-                    birth: ''
+                    name: '李小明',
+                    city: '北京',
+                    birth: '1990.01.01'
                 }, ],
                 labels: {
                     name: '姓名',
@@ -33,10 +33,10 @@ export default new Vuex.Store({
                 button: 'no',
                 title: '联系方式',
                 itemData: [{
-                    email: '',
-                    mobile: '',
-                    weixin: '',
-                    QQ: ''
+                    email: 'li.xiaoming@163.com',
+                    mobile: '12345678',
+                    weixin: '12345678',
+                    QQ: '12345678'
                 }, ],
                 labels: {
                     email: '邮箱',
@@ -50,10 +50,22 @@ export default new Vuex.Store({
                 button: 'yes',
                 title: '工作经历',
                 itemData: [{
-                    company: '',
-                    duration: '',
-                    content: ''
-                }, ],
+                        company: '百度',
+                        duration: '2012.8-2013.10',
+                        content: `专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
+                        我的主要工作如下:
+                        1. 完成既定产品需求。
+                        2. 修复 bug。`
+                    },
+                    {
+                        company: '阿狸',
+                        duration: '2013.10-至今',
+                        content: `专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
+                        我的主要工作如下:
+                        1. 完成既定产品需求。
+                        2. 修复 bug。`
+                    },
+                ],
                 labels: {
                     company: '公司',
                     duration: '时间',
@@ -65,10 +77,10 @@ export default new Vuex.Store({
                 button: 'yes',
                 title: '学习经历',
                 itemData: [{
-                    school: '',
-                    duration: '',
-                    major: '',
-                    degree: ''
+                    school: '前端大学',
+                    duration: '2008-09-2012.08',
+                    major: '前端专业',
+                    degree: '学士'
                 }, ],
                 labels: {
                     school: '学校',
@@ -82,8 +94,8 @@ export default new Vuex.Store({
                 button: 'yes',
                 title: '项目经历',
                 itemData: [{
-                    name: '',
-                    content: ''
+                    name: 'xxxx网站设计',
+                    content: '网站设计网站设计网站设计网站设计网站设计网站设计网站设计网站设计网站设计'
                 }, ],
                 labels: {
                     name: '项目名称',
@@ -95,8 +107,8 @@ export default new Vuex.Store({
                 button: 'yes',
                 title: '获奖情况',
                 itemData: [{
-                    name: '',
-                    content: ''
+                    name: '前端设计大赛',
+                    content: '一等奖'
                 }, ],
                 labels: {
                     name: '奖项名称',
