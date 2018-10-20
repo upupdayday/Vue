@@ -14,7 +14,7 @@
       </nav>
       <ol class="panels">
             <li v-for="item in resume.itemTalbe" :class="{active: currentTab === item.itemName}">
-              <SubEditor v-bind:items="resume[item.itemName]"/>
+              <SubEditor v-bind:panelName="item.itemName"/>
             </li>
       </ol>
     </div>

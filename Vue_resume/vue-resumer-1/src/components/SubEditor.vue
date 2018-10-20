@@ -1,7 +1,8 @@
 <template>
     <div>
-        <h2>{{items.title}}</h2>
-        <el-form>
+        <h2>tt+{{resume[panelName].title}}</h2>
+        <h2>ss+{{items(panelName).title}}</h2>
+        <!-- <el-form>
         <div class="experienceEditorWrapper" v-for="(item, index) in items.itemData">
             <el-button v-if="items.button === 'yes'" @click="deleteItem(index)"
                      type="danger" icon="el-icon-delete" size="small"></el-button>
@@ -12,19 +13,37 @@
         </div>
         <el-button v-if="items.button === 'yes'" @click="addItem" 
             type="primary" plain>添加经历</el-button>
-        </el-form>
+        </el-form> -->
     </div>
+
 </template>
 
 <script>
     export default {
-        props: ['items'],
+        props: ['panelName'],
         computed:{
+            count () {
+                return this.$store.state.count
+            },
+
             keys: function(){
-                return Object.keys(this.items.itemData[0]);
-            }
+                return Object.keys(items.itemData[0]);
+            },
+
+            resume(){
+                return this.$store.state.resume
+            },
+            items: function(){
+                return function(panelName){
+                        return this.$store.state.resume[panelName] 
+                    }             
+            },
         },
         methods:{
+            add (){
+                this.$store.commit('increment')
+            },
+
             addItem: function(){
                 const empty = {};
                 this.keys.map(
