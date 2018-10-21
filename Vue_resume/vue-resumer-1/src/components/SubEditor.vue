@@ -1,31 +1,33 @@
 <template>
     <div>
-        <p>------subeditor中直接访问resume,利用传进来的panelName寻址-------</p>
+        <!-- <p>------subeditor中直接访问resume,利用传进来的panelName寻址-------</p>
         <h2>aa+{{resume[panelName].title}}</h2>
         <p>bb+{{resume[panelName].itemData[0]}}</p>
         <p>------在Editor中定位好，直接用props传进来items-------</p>
         <h2>cc+{{items.title}}</h2>
         <p>dd+{{items.itemData[0]}}</p>
-        <!-- <p>------subeditor中用传进来的props访问resume-------</p>
-        <div>{{items.itemData}}</div>
         <li v-for="(item,index) in items.itemData">
             <p>{{index}}</p>
         </li> -->
-        <!-- <el-form>            
+        <el-form>            
         <div class="experienceEditorWrapper" v-for="(item, index) in items.itemData">
             <el-button v-if="items.button === 'yes'" @click="deleteItem(index)"
                      type="danger" icon="el-icon-delete" size="small"></el-button>
-            <el-form-item v-for="key in keys" v-bind:label="items.labels[key]"  v-bind:key= "key">
+            <!-- <el-form-item v-for="key in keys" v-bind:label="items.labels[key]"  v-bind:key= "key">
                 <el-input v-model="item[key]"></el-input>
-            </el-form-item>               
+            </el-form-item>                -->
             <hr v-if="items.button === 'yes'"> 
-            <p>ss+{{index}}</p>
-            <p>nn+{{items.itemData[0]}}</p>
-            <p>mm+{{keys(items.itemData[0])}}</p> 
+            <p>ee+{{index}}</p>
+            <p>ff+{{items.itemData[0]}}</p>
+            <p>gg+{{keys1(items.itemData[0])}}</p>
+            <p>hh+{{keys2}}</p>
+            <p>ii+{{keys3}}</p>
+            <p>jj+{{keys4}}</p>
+
         </div>
         <el-button v-if="items.button === 'yes'" @click="addItem" 
             type="primary" plain>添加经历</el-button>
-        </el-form> -->
+        </el-form>
     </div>
 
 </template>
@@ -40,11 +42,23 @@
             },
 
             //使用闭包方式获取key
-            // keys:function(){
-            //     return function(obj){
-            //             return Object.keys(obj) 
-            //         }             
-            // },
+            keys1:function(){
+                return function(obj){
+                        return Object.keys(obj) 
+                    }             
+            },
+
+            keys2:function(){     
+                    return Object.keys(this.items.itemData[0])
+            },
+
+            keys3:function(){     
+                    return this.$store.state.resume[this.panelName].itemData[0]
+            },
+
+            keys4:function(){     
+                return Object.keys(this.$store.state.resume[this.panelName].itemData[0])
+            },
 
             //需要声明获取store方法;
             resume(){

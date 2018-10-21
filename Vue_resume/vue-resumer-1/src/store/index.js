@@ -80,11 +80,18 @@ export default new Vuex.Store({
                 button: 'yes',
                 title: '学习经历',
                 itemData: [{
-                    school: '前端大学',
-                    duration: '2008-09-2012.08',
-                    major: '前端专业',
-                    degree: '学士'
-                }, ],
+                        school: '前端大学',
+                        duration: '2008-09-2012.08',
+                        major: '前端专业',
+                        degree: '学士'
+                    },
+                    {
+                        school: '前端高级大学',
+                        duration: '2008-09-2012.08',
+                        major: '前端高级专业',
+                        degree: '硕士'
+                    },
+                ],
                 labels: {
                     school: '学校',
                     duration: '时间',
