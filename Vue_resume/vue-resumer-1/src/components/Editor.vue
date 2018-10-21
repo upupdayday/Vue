@@ -14,7 +14,9 @@
       </nav>
       <ol class="panels">
             <li v-for="item in resume.itemTalbe" :class="{active: currentTab === item.itemName}">
-              <SubEditor v-bind:panelName="item.itemName"/>
+              <!--1.传panelName-在sub里面定位resume,2.在外面定位好items直接传进去-->
+              <SubEditor v-bind:panelName="item.itemName" v-bind:items="resume[item.itemName]"/>
+              <!-- <SubEditor v-bind:items="resume[item.itemName]"/> -->
             </li>
       </ol>
     </div>
