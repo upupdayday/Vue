@@ -1,31 +1,16 @@
 <template>
     <div>
-        <!-- <p>------subeditor中直接访问resume,利用传进来的panelName寻址-------</p>
-        <h2>aa+{{resume[panelName].title}}</h2>
-        <p>bb+{{resume[panelName].itemData[0]}}</p>
-        <p>------在Editor中定位好，直接用props传进来items-------</p>
-        <h2>cc+{{items.title}}</h2>
-        <p>dd+{{items.itemData[0]}}</p>
-        <li v-for="(item,index) in items.itemData">
-            <p>{{index}}</p>
-        </li> -->
+        <h2>{{resume[panelName].title}}</h2>
         <el-form>            
-        <div class="experienceEditorWrapper" v-for="(item, index) in items.itemData">
-            <el-button v-if="items.button === 'yes'" @click="deleteItem(index)"
+        <div class="experienceEditorWrapper" v-for="(item, index) in resume[panelName].itemData">
+            <el-button v-if="resume[panelName].button === 'yes'" @click="deleteItem(index)"
                      type="danger" icon="el-icon-delete" size="small"></el-button>
-            <!-- <el-form-item v-for="key in keys" v-bind:label="items.labels[key]"  v-bind:key= "key">
+            <el-form-item v-for="key in keys" v-bind:label="resume[panelName].labels[key]"  v-bind:key= "key">
                 <el-input v-model="item[key]"></el-input>
-            </el-form-item>                -->
-            <hr v-if="items.button === 'yes'"> 
-            <p>ee+{{index}}</p>
-            <p>ff+{{items.itemData[0]}}</p>
-            <p>gg+{{keys1(items.itemData[0])}}</p>
-            <p>hh+{{keys2}}</p>
-            <p>ii+{{keys3}}</p>
-            <p>jj+{{keys4}}</p>
-
+            </el-form-item>                
+            <hr v-if="resume[panelName].button === 'yes'"> 
         </div>
-        <el-button v-if="items.button === 'yes'" @click="addItem" 
+        <el-button v-if="resume[panelName].button === 'yes'" @click="addItem" 
             type="primary" plain>添加经历</el-button>
         </el-form>
     </div>
@@ -34,29 +19,9 @@
 
 <script>
     export default {
-        // props: ['items'],
-        props: ['panelName', 'items'],
+        props: ['panelName'],
         computed:{
-            count () {
-                return this.$store.state.count
-            },
-
-            //使用闭包方式获取key
-            keys1:function(){
-                return function(obj){
-                        return Object.keys(obj) 
-                    }             
-            },
-
-            keys2:function(){     
-                    return Object.keys(this.items.itemData[0])
-            },
-
-            keys3:function(){     
-                    return this.$store.state.resume[this.panelName].itemData[0]
-            },
-
-            keys4:function(){     
+            keys:function(){     
                 return Object.keys(this.$store.state.resume[this.panelName].itemData[0])
             },
 
@@ -64,24 +29,8 @@
             resume(){
                 return this.$store.state.resume
             },
-            
-            //也可以用闭包的方式，传参数进来获取items
-            // items: function(){      
-            //     return function(panelName){
-            //             return this.$store.state.resume[panelName] 
-            //         }             
-            // },
         },
         methods:{
-            add (){
-                this.$store.commit('increment')
-            },
-
-            // keys: function(obj){
-            //     return Object.keys(obj);
-            //     //return items.itemData[0]
-            // },
-
             addItem: function(){
                 const empty = {};
                 this.keys.map(
