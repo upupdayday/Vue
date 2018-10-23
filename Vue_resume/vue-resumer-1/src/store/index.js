@@ -133,6 +133,9 @@ export default new Vuex.Store({
         },
         switchTab(state, payload) {
             state.currentTab = payload;
+        },
+        updateResume(state, { field, index, key, value }) {
+            state.resume[field].itemData[index][key] = value
         }
     }
 })
