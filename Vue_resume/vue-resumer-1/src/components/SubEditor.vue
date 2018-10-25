@@ -7,10 +7,10 @@
                      type="danger" icon="el-icon-delete" size="small"></el-button>
             <el-form-item v-for="key in keys" v-bind:label="resume[panelName].labels[key]"  v-bind:key= "key">
                 <!-- <el-input v-model="item[key]"></el-input> -->
-                <el-input :value="item[key]" @input="changeResumeField(panelName, index, key, $event.target.value)"></el-input>
+                <el-input :value="item[key]" @input="changeResumeField(panelName, index, key, $event)"></el-input>
                 <input
                 v-bind:value="item[key]"
-                @input="changeResumeField(panelName, index, key, $event.target.value)"
+                @input="changeResumeField2(panelName, index, key, $event.target.value)"
                 >
                 <p>aa++{{key}}</p>
                 <p>cc++{{resume[panelName].itemData[index][key]}}</p>
@@ -58,13 +58,22 @@
                 // }                
             },
             changeResumeField: function(field, index, key, value){
-                console.log("aaaaaa~~~~~~~~~~~"+value)
-                this.$store.commit('updateResume',{
-                    field,
-                    index,
-                    key,
-                    value
-                    })
+                console.log("aaa~~~"+value)
+                // this.$store.commit('updateResume',{
+                //     field,
+                //     index,
+                //     key,
+                //     value
+                //     })
+            },
+            changeResumeField2: function(field, index, key, value){
+                console.log("bbb~~~"+value)
+                // this.$store.commit('updateResume',{
+                //     field,
+                //     index,
+                //     key,
+                //     value
+                //     })
             },
             aaa: function(value){
                 console.log("bbbb~~~~~"+value)
