@@ -136,6 +136,13 @@ export default new Vuex.Store({
         },
         updateResume(state, { field, index, key, value }) {
             state.resume[field].itemData[index][key] = value
-        }
+        },
+        addItemData(state, { field, empty }) {
+            state.resume[field].itemData.push(empty)
+        },
+        deleteItemData(state, { field, index }) {
+            // console.log(state.resume[field].itemData)
+            state.resume[field].itemData.splice(index, 1)
+        },
     }
 })
