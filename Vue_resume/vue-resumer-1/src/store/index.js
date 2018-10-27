@@ -128,21 +128,30 @@ export default new Vuex.Store({
         },
     },
     mutations: {
+        /*Object.assign不改变state的引用,state = payload改变了原来对象的引用,
+        state之后的变化将追踪不到*/
+        initState(state, payload) {
+            Object.assign(state, payload)
+        },
         increment(state) {
             state.count++
         },
         switchTab(state, payload) {
             state.currentTab = payload;
+            localStorage.setItem('state', JSON.stringify(state))
         },
         updateResume(state, { field, index, key, value }) {
             state.resume[field].itemData[index][key] = value
+            localStorage.setItem('state', JSON.stringify(state))
         },
         addItemData(state, { field, empty }) {
             state.resume[field].itemData.push(empty)
+            localStorage.setItem('state', JSON.stringify(state))
         },
         deleteItemData(state, { field, index }) {
             // console.log(state.resume[field].itemData)
             state.resume[field].itemData.splice(index, 1)
+            localStorage.setItem('state', JSON.stringify(state))
         },
     }
 })
