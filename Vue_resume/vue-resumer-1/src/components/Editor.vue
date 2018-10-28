@@ -45,7 +45,10 @@ export default {
     }
   },
   methods: {
-
+    login(user){
+      this.signUpDialogVisible = false
+      this.$store.commit('setUser', user)
+    }
   }
 }
 </script>

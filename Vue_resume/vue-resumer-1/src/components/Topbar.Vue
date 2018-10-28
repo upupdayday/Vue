@@ -4,9 +4,10 @@
         <span>Resumer</span>
       </div>
       <div class="action">   
+        <span>{{user}}</span>
         <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
         <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
-          我就是 slot 内容
+          <SignUpForm @success="login($event)"/>
         </MyDialog>
         <el-button>登录</el-button>     
         <el-button type="primary">保存</el-button>
@@ -17,16 +18,28 @@
 
 <script>
 import MyDialog from "./MyDialog"
-export default{
+import SignUpForm from './SignUpForm'
+export default {
     name: 'Topbar',
     components: {
-      MyDialog
+      MyDialog, SignUpForm
     },
     data() {
       return {
         signUpDialogVisible: false
       }
     },
+    computed: {
+      user(){
+        return this.$store.state.user
+      }
+    },
+    methods: {
+      login(user){
+        this.signUpDialogVisible = false
+        this.$store.commit('setUser', user)
+      }
+    }	  
 }
 </script>
 

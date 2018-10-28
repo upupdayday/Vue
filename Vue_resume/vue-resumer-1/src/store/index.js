@@ -9,6 +9,10 @@ export default new Vuex.Store({
 
 
         currentTab: 'profile',
+        user: {
+            id: '',
+            username: ''
+        },
         resume: {
             itemTalbe: [
                 { itemName: 'profile', icon: 'shenfenzheng' },
@@ -153,5 +157,9 @@ export default new Vuex.Store({
             state.resume[field].itemData.splice(index, 1)
             localStorage.setItem('state', JSON.stringify(state))
         },
+        setUser(state, payload) {
+            Object.assign(state.user, payload)
+            console.log(state.user)
+        }
     }
 })
