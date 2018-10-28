@@ -24,6 +24,7 @@
 <script>
 import SubEditor from './SubEditor'
 export default {
+  name: 'Editor',
   components: {SubEditor},
   data() {
     return {

@@ -63,11 +63,12 @@
 
 <script>
     export default{
-      computed: {
-        resume(){
-          return this.$store.state.resume
+        name: 'Preview',
+        computed: {
+            resume(){
+            return this.$store.state.resume
+            }
         }
-      }
     }
 </script>
 

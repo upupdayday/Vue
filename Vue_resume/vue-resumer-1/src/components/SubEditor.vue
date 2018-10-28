@@ -20,6 +20,7 @@
 
 <script>
     export default {
+        name: 'SubEditor',
         props: ['panelName'],
         computed:{
             keys:function(){     
