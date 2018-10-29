@@ -4,12 +4,22 @@
         <span>Resumer</span>
       </div>
       <div class="action">   
-        <span>{{user}}</span>
-        <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
-        <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
-          <SignUpForm @success="login($event)"/>
-        </MyDialog>
-        <el-button>登录</el-button>     
+        <div v-if="logined" class="userActions">
+          <span>你好，{{user.username}}</span>
+          <el-button>登出</el-button> 
+        </div>
+        <div v-else class="userActions">
+          <span>{{user}}</span>
+
+          <!-- <span>{{test}}</span>
+          <span>{{reversedMessage}}</span> -->
+
+          <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
+          <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
+            <SignUpForm @success="login($event)"/>
+          </MyDialog>
+          <el-button>登录</el-button>  
+        </div>   
         <el-button type="primary">保存</el-button>
         <el-button>预览</el-button>
       </div>
@@ -26,13 +36,28 @@ export default {
     },
     data() {
       return {
-        signUpDialogVisible: false
+        signUpDialogVisible: false,
+        message: 'Hello'
       }
     },
     computed: {
       user(){
         return this.$store.state.user
-      }
+      },
+      logined(){
+        return this.$store.state.user.id
+      }, 
+      //直接获取computed的user似乎不行
+      // logined(){
+      //   return this.user().id
+      // }, 
+      // reversedMessage: function() {
+      //   // `this` 指向 vm 实例
+      //   return this.message.split('').reverse().join('')
+      // },
+      // test: function() {
+      //   this.reversedMessage
+      // }
     },
     methods: {
       login(user){
@@ -62,5 +87,12 @@ export default {
     font-size:24px;
     color:#409EFF;
     }
+    .action{
+      display: flex;
+      .userActions{
+        margin-right: 3em;
+      }
+    }
+
   }
 </style>
