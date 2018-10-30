@@ -10,10 +10,6 @@
         </div>
         <div v-else class="userActions">
           <span>{{user}}</span>
-
-          <span>aa+{{test}}</span>
-          <span>bb+{{reversedMessage}}</span>
-
           <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
           <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
             <SignUpForm @success="signIn($event)"/>
@@ -38,7 +34,6 @@ export default {
     data() {
       return {
         signUpDialogVisible: false,
-        message: 'Hello'
       }
     },
     computed: {
@@ -50,13 +45,6 @@ export default {
         //computed嵌套复用
         return this.user.id
       }, 
-      reversedMessage() {
-        // `this` 指向 vm 实例
-        return this.message.split('').reverse().join('')
-      },
-      test() {
-        return this.reversedMessage
-      }
     },
     methods: {
       logOut(){

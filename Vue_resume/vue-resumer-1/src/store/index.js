@@ -26,7 +26,7 @@ export default new Vuex.Store({
                 button: 'no',
                 title: '个人信息',
                 itemData: [{
-                    name: '李小明',
+                    name: '李小明sdf',
                     city: '北京',
                     birth: '1990.01.01'
                 }, ],
@@ -57,7 +57,7 @@ export default new Vuex.Store({
                 button: 'yes',
                 title: '工作经历',
                 itemData: [{
-                        company: '百度',
+                        company: '百度sdfs',
                         duration: '2012.8-2013.10',
                         content: `专注于移动XXX领域，主打产品XXXXX，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化 定制。
                         我的主要工作如下:
