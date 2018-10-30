@@ -11,8 +11,8 @@
         <div v-else class="userActions">
           <span>{{user}}</span>
 
-          <!-- <span>{{test}}</span>
-          <span>{{reversedMessage}}</span> -->
+          <span>aa+{{test}}</span>
+          <span>bb+{{reversedMessage}}</span>
 
           <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
           <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
@@ -44,21 +44,19 @@ export default {
     computed: {
       user(){
         return this.$store.state.user
-      },
-      logined(){
-        return this.$store.state.user.id
       }, 
-      //直接获取computed的user似乎不行
-      // logined(){
-      //   return this.user().id
-      // }, 
-      // reversedMessage: function() {
-      //   // `this` 指向 vm 实例
-      //   return this.message.split('').reverse().join('')
-      // },
-      // test: function() {
-      //   this.reversedMessage
-      // }
+      logined(){
+        //   return this.$store.state.user.id
+        //computed嵌套复用
+        return this.user.id
+      }, 
+      reversedMessage() {
+        // `this` 指向 vm 实例
+        return this.message.split('').reverse().join('')
+      },
+      test() {
+        return this.reversedMessage
+      }
     },
     methods: {
       logOut(){

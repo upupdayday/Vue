@@ -24,7 +24,10 @@
         props: ['panelName'],
         computed:{
             keys:function(){     
-                return Object.keys(this.$store.state.resume[this.panelName].itemData[0])
+                
+                // return Object.keys(this.$store.state.resume[this.panelName].itemData[0])
+                //computed嵌套复用
+                return Object.keys(this.resume[this.panelName].itemData[0])
             },
 
             //需要声明获取store方法;
