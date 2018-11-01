@@ -5,16 +5,18 @@
       </div>
       <div class="action">   
         <div v-if="logined" class="userActions">
-          <span>你好，{{user.username}}</span>
+          <span class="welcome">你好，{{user.username}}</span>
           <el-button  @click.prevent="logOut">登出</el-button> 
         </div>
         <div v-else class="userActions">
-          <span>{{user}}</span>
           <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
           <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
-            <SignUpForm @success="signIn($event)"/>
+            <SignUpForm @success="signUp($event)"/>
           </MyDialog>
-          <el-button>登录</el-button>  
+          <el-button type="primary"  @click.prevent="logInDialogVisible = true">登录</el-button>  
+          <MyDialog title="登录" :visible="logInDialogVisible"  @close="logInDialogVisible = false">
+            <LogInForm/>
+          </MyDialog>
         </div>   
         <el-button type="primary">保存</el-button>
         <el-button>预览</el-button>
@@ -25,15 +27,17 @@
 <script>
 import MyDialog from "./MyDialog"
 import SignUpForm from './SignUpForm'
+import LogInForm from './LogInForm'
 import AV from '../lib/leancloud'
 export default {
     name: 'Topbar',
     components: {
-      MyDialog, SignUpForm
+      MyDialog, SignUpForm, LogInForm
     },
     data() {
       return {
         signUpDialogVisible: false,
+        logInDialogVisible: false
       }
     },
     computed: {
@@ -51,7 +55,7 @@ export default {
         AV.User.logOut()
         this.$store.commit('removeUser')
       },
-      signIn(user){
+      signUp(user){
         this.signUpDialogVisible = false
         this.$store.commit('setUser', user)
       }
@@ -82,7 +86,11 @@ export default {
       display: flex;
       .userActions{
         margin-right: 3em;
+        .welcome{
+          margin-right: .5em;
+        }
       }
+
     }
 
   }
