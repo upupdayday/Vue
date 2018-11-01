@@ -10,17 +10,17 @@
         </div>
         <div v-else class="userActions">
           <el-button type="primary"  @click.prevent="signUpDialogVisible = true">注册</el-button>
-          <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
-            <SignUpForm @success="signUp($event)"/>
-          </MyDialog>
           <el-button type="primary"  @click.prevent="logInDialogVisible = true">登录</el-button>  
-          <MyDialog title="登录" :visible="logInDialogVisible"  @close="logInDialogVisible = false">
-            <LogInForm/>
-          </MyDialog>
         </div>   
         <el-button type="primary">保存</el-button>
         <el-button>预览</el-button>
       </div>
+      <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
+        <SignUpForm @success="signUp($event)"/>
+      </MyDialog>
+      <MyDialog title="登录" :visible="logInDialogVisible"  @close="logInDialogVisible = false">
+        <LogInForm/>
+      </MyDialog>
     </div>
 </template>
 

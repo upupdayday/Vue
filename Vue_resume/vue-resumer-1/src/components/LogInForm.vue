@@ -1,6 +1,15 @@
 <template>
   <div>
-    <form @submit.prevent="logIn">
+    <el-form :label-position="labelPosition" label-width="60px">
+      <el-form-item label="用户名">
+        <el-input v-model="formData.username"></el-input>
+      </el-form-item>
+      <el-form-item label="密码">
+        <el-input v-model="formData.password"></el-input>
+      </el-form-item>
+      <el-button type="primary" @click="logIn">登录</el-button>
+    </el-form>
+    <!-- <form @submit.prevent="logIn">
       <div class="row">
         <label>用户名</label>
         <input type="text" required v-model="formData.username">
@@ -13,7 +22,7 @@
         <input type="submit" value="提交">
         <span>{{errorMessage}}</span>
       </div>
-    </form>
+    </form> -->
   </div>
 </template>
 
@@ -25,6 +34,7 @@ export default {
   name: 'LogInForm',
   data(){
     return {
+      labelPosition: 'right',
       formData: {
         username: '',
         password: ''
