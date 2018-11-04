@@ -16,10 +16,10 @@
         <el-button>预览</el-button>
       </div>
       <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
-        <SignUpForm @success="signUp($event)"/>
+        <SignUpForm @success="signIn($event)"/>
       </MyDialog>
       <MyDialog title="登录" :visible="logInDialogVisible"  @close="logInDialogVisible = false">
-        <LogInForm/>
+        <LogInForm @success="signIn($event)"/>
       </MyDialog>
     </div>
 </template>
@@ -55,8 +55,9 @@ export default {
         AV.User.logOut()
         this.$store.commit('removeUser')
       },
-      signUp(user){
+      signIn(user){
         this.signUpDialogVisible = false
+        this.logInDialogVisible = false
         this.$store.commit('setUser', user)
       }
     }	  
