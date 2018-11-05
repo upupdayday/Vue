@@ -142,20 +142,16 @@ export default new Vuex.Store({
         },
         switchTab(state, payload) {
             state.currentTab = payload;
-            localStorage.setItem('state', JSON.stringify(state))
         },
         updateResume(state, { field, index, key, value }) {
             state.resume[field].itemData[index][key] = value
-            localStorage.setItem('state', JSON.stringify(state))
         },
         addItemData(state, { field, empty }) {
             state.resume[field].itemData.push(empty)
-            localStorage.setItem('state', JSON.stringify(state))
         },
         deleteItemData(state, { field, index }) {
             // console.log(state.resume[field].itemData)
             state.resume[field].itemData.splice(index, 1)
-            localStorage.setItem('state', JSON.stringify(state))
         },
         setUser(state, payload) {
             Object.assign(state.user, payload)
