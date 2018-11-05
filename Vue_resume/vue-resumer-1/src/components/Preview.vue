@@ -5,6 +5,7 @@
           <h2>{{resume.profile.title}}</h2>
           <p>城市：{{resume.profile.itemData[0].city}}</p>
           <p>出生日期：{{resume.profile.itemData[0].birth}}</p>
+          <el-button class="exit" v-show="previewMode" @click="exitPreview" type="danger" plain>退出预览</el-button>
       </section>
 
       <section data-name="work" v-show="resume.work">
@@ -67,6 +68,15 @@
         computed: {
             resume(){
             return this.$store.state.resume
+            },
+            previewMode(){
+            return this.$store.state.previewMode
+            }
+        },
+        methods: {
+            exitPreview(){
+                this.$store.commit('switchPreview', false)
+                console.log('~~~~~' + this.$store.state.previewMode)
             }
         }
     }
@@ -108,15 +118,18 @@
     }
 
     section[data-name="profile"]{
+        position: relative;
         >h1{
             margin: .1em 0; 
             font-size:3em;
-        }    
-    }
-
-
-
-
-    
+        }
+        .exit{
+            position:absolute;
+            top: 0;
+            right: 24px;
+        }  
+    }    
   }
+
+
 </style>

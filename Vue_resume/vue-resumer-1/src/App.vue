@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="{app_edit: !previewMode}">
     <header>
       <Topbar/>
     </header>
     
-    <main>
-      <Editor/>
-      <Preview/>  
+    <main v-bind:class="{show: previewMode, edit: !previewMode}">
+      <Editor v-show="!previewMode"/>
+      <Preview />  
     </main>
   </div>
   
@@ -40,6 +40,11 @@ export default {
     // }
     // this.$store.commit('initState', state)
     this.$store.commit('setUser', getAVUser())
+  },
+  computed: {
+    previewMode(){
+      return this.$store.state.previewMode
+    }
   }
 }
 </script>
@@ -49,12 +54,14 @@ export default {
     /* min-width: 1024px;
     max-width: 1440px; */
     margin: 0 auto;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     background: #EAEBEC;
   }
-  main{
+  .app_edit{
+    height: 100vh;
+  }
+  .edit{
     min-width: 1024px;
     /* max-width: 1440px; */
     display: flex;   
@@ -72,5 +79,11 @@ export default {
       vertical-align: -0.15em;
       fill: currentColor;
       overflow: hidden;
+  }
+
+  .show{
+      width: 1024px;
+      margin: 24px auto;
+      color: red;
   }
 </style>

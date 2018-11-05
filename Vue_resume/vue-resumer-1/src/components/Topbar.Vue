@@ -13,7 +13,7 @@
           <el-button type="primary"  @click.prevent="logInDialogVisible = true">登录</el-button>  
         </div>   
         <el-button type="primary">保存</el-button>
-        <el-button>预览</el-button>
+        <el-button @click.prevent="enablePreview">预览</el-button>
       </div>
       <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible=false">
         <SignUpForm @success="signIn($event)"/>
@@ -59,6 +59,10 @@ export default {
         this.signUpDialogVisible = false
         this.logInDialogVisible = false
         this.$store.commit('setUser', user)
+      },
+      enablePreview(){
+        this.$store.commit('switchPreview', true)
+        console.log('~~~~~' + this.$store.state.previewMode)
       }
     }	  
 }

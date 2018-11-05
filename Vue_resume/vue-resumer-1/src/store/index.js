@@ -5,9 +5,7 @@ Vue.use(Vuex) // 不写这句话浏览器控制台就会报错，于是我就写
 
 export default new Vuex.Store({
     state: {
-        count: 0,
-
-
+        previewMode: false,
         currentTab: 'profile',
         user: {
             id: '',
@@ -159,6 +157,9 @@ export default new Vuex.Store({
         },
         removeUser(state) {
             state.user.id = ''
+        },
+        switchPreview(state, payload) {
+            state.previewMode = payload;
         }
     }
 })
